@@ -11,7 +11,7 @@ Forked from https://github.com/Shopify/storage which forked from https://github.
 # Installation
 
 ```console
-$ go get github.com/Coronon/go-storage
+go get github.com/coronon/go-storage
 ```
 
 # Usage

@@ -14,8 +14,8 @@ import (
 
 	"github.com/stretchr/testify/require"
 
-	"github.com/Coronon/go-storage"
-	"github.com/Coronon/go-storage/internal/testutils"
+	"github.com/coronon/go-storage"
+	"github.com/coronon/go-storage/internal/testutils"
 )
 
 func BenchmarkCloudStorageFS(b *testing.B) {

@@ -5,7 +5,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/Coronon/go-storage"
+	"github.com/coronon/go-storage"
 )
 
 func TestNewTimeoutWrapper(t *testing.T) {

@@ -3,8 +3,8 @@ package storage_test
 import (
 	"testing"
 
-	"github.com/Coronon/go-storage"
-	"github.com/Coronon/go-storage/internal/testutils"
+	"github.com/coronon/go-storage"
+	"github.com/coronon/go-storage/internal/testutils"
 )
 
 func withMem(cb func(storage.FS)) {

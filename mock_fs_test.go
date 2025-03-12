@@ -7,7 +7,7 @@ import (
 	"github.com/stretchr/testify/assert"
 	"github.com/stretchr/testify/mock"
 
-	"github.com/Coronon/go-storage"
+	"github.com/coronon/go-storage"
 )
 
 func Test_mockFS_Attributes(t *testing.T) {

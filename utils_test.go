@@ -5,8 +5,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/Coronon/go-storage"
-	"github.com/Coronon/go-storage/internal/testutils"
+	"github.com/coronon/go-storage"
+	"github.com/coronon/go-storage/internal/testutils"
 )
 
 func TestExists(t *testing.T) {

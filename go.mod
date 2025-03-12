@@ -1,4 +1,4 @@
-module github.com/Coronon/go-storage
+module github.com/coronon/go-storage
 
 go 1.24
 

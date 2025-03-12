@@ -2,7 +2,7 @@ linters-settings:
   goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
-    local-prefixes: github.com/Coronon/go-storage
+    local-prefixes: github.com/coronon/go-storage
 
   gocritic:
     # Which checks should be enabled; can't be combined with 'disabled-checks';
