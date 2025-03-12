@@ -3,7 +3,6 @@ package storage_test
 import (
 	"bytes"
 	"compress/gzip"
-	"context"
 	"crypto/rand"
 	"crypto/sha1"
 	"fmt"
@@ -20,7 +19,7 @@ import (
 )
 
 func BenchmarkCloudStorageFS(b *testing.B) {
-	ctx := b.Background()
+	ctx := b.Context()
 
 	withCloudStorageFS(b, func(fs storage.FS) {
 		b.Run("create", func(b *testing.B) {
@@ -79,7 +78,7 @@ func Test_cloudStorageFS_URL(t *testing.T) {
 		contents := "test"
 		testutils.Create(t, fs, path, contents)
 
-		url, err := fs.URL(t.Background(), path, nil)
+		url, err := fs.URL(t.Context(), path, nil)
 		require.NoError(t, err)
 		require.NotEmpty(t, url)
 
@@ -121,7 +120,7 @@ func Test_cloudStorageFS_Delete(t *testing.T) {
 }
 
 func Test_cloudStorageFS_Content_Encoding(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 
 	withCloudStorageFS(t, func(fs storage.FS) {
 		path := "foo"

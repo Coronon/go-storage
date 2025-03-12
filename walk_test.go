@@ -1,7 +1,6 @@
 package storage
 
 import (
-	"context"
 	"os"
 	"path/filepath"
 	"testing"
@@ -11,7 +10,7 @@ import (
 
 func TestList(t *testing.T) {
 	withTestTree(t, func(dir string) {
-		ctx := t.Background()
+		ctx := t.Context()
 		fs := NewLocalFS(dir)
 
 		list, err := List(ctx, fs, "")
@@ -47,7 +46,7 @@ func TestWalkN(t *testing.T) {
 			close(done)
 		}()
 
-		ctx := t.Background()
+		ctx := t.Context()
 		fs := NewLocalFS(dir)
 		// 5 workers for 2 items
 		err := WalkN(ctx, fs, "", 5, func(path string) error {
@@ -67,12 +66,11 @@ func TestWalkN(t *testing.T) {
 func withTestTree(t *testing.T, cb func(dir string)) {
 	t.Helper()
 
-	dir, err := t.MkdirTemp("", "go-storage-walk-test")
-	assert.NoError(t, err)
+	dir := t.TempDir()
 	defer os.RemoveAll(dir)
 
 	assert.NoError(t, os.Mkdir(filepath.Join(dir, "foo"), 0o755))
-	_, err = os.Create(filepath.Join(dir, "foo", "bar"))
+	_, err := os.Create(filepath.Join(dir, "foo", "bar"))
 	assert.NoError(t, err)
 	_, err = os.Create(filepath.Join(dir, "baz"))
 	assert.NoError(t, err)

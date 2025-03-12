@@ -1,7 +1,6 @@
 package storage_test
 
 import (
-	"context"
 	"testing"
 
 	"github.com/stretchr/testify/assert"
@@ -12,7 +11,7 @@ import (
 func TestNewTimeoutWrapper(t *testing.T) {
 	withSlowWrapper(slowDelay*2, slowDelay*2, func(fs storage.FS) {
 		fs = storage.NewTimeoutWrapper(fs, slowDelay, slowDelay)
-		file, err := fs.Open(t.Background(), "foo", nil)
+		file, err := fs.Open(t.Context(), "foo", nil)
 		assert.Nil(t, file)
 		assert.EqualError(t, err, "context deadline exceeded")
 	})

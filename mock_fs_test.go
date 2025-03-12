@@ -1,7 +1,6 @@
 package storage_test
 
 import (
-	"context"
 	"os"
 	"testing"
 
@@ -12,7 +11,7 @@ import (
 )
 
 func Test_mockFS_Attributes(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 	fs := storage.NewMockFS()
 	path := "foo"
 	options := &storage.ReaderOptions{}
@@ -26,7 +25,7 @@ func Test_mockFS_Attributes(t *testing.T) {
 }
 
 func Test_mockFS_Create(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 	fs := storage.NewMockFS()
 	path := "foo"
 	options := &storage.WriterOptions{}
@@ -40,7 +39,7 @@ func Test_mockFS_Create(t *testing.T) {
 }
 
 func Test_mockFS_Delete(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 	fs := storage.NewMockFS()
 	path := "foo"
 
@@ -51,7 +50,7 @@ func Test_mockFS_Delete(t *testing.T) {
 }
 
 func Test_mockFS_Open(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 	fs := storage.NewMockFS()
 	path := "foo"
 	options := &storage.ReaderOptions{}
@@ -65,7 +64,7 @@ func Test_mockFS_Open(t *testing.T) {
 }
 
 func Test_mockFS_URL(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 	fs := storage.NewMockFS()
 	path := "foo"
 	options := &storage.SignedURLOptions{}
@@ -79,7 +78,7 @@ func Test_mockFS_URL(t *testing.T) {
 }
 
 func Test_mockFS_Walk(t *testing.T) {
-	ctx := t.Background()
+	ctx := t.Context()
 	fs := storage.NewMockFS()
 	path := "foo"
 	fn := func(_ string) error { return nil }
