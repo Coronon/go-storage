@@ -7,7 +7,7 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/Shopify/go-storage"
+	"github.com/Coronon/go-storage"
 )
 
 func OpenExists(t *testing.T, fs storage.FS, path string, content string) {

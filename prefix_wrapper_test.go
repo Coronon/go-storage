@@ -3,8 +3,8 @@ package storage_test
 import (
 	"testing"
 
-	"github.com/Shopify/go-storage"
-	"github.com/Shopify/go-storage/internal/testutils"
+	"github.com/Coronon/go-storage"
+	"github.com/Coronon/go-storage/internal/testutils"
 )
 
 const prefix = "testPrefix/"

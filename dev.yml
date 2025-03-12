@@ -2,7 +2,7 @@ name: go-storage
 
 up:
   - go:
-      version: "1.21.6"
+      version: "1.24.1"
       modules: true
   - custom:
         name: Load dependencies

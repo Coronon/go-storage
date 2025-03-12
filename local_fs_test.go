@@ -4,8 +4,8 @@ import (
 	"os"
 	"testing"
 
-	"github.com/Shopify/go-storage"
-	"github.com/Shopify/go-storage/internal/testutils"
+	"github.com/Coronon/go-storage"
+	"github.com/Coronon/go-storage/internal/testutils"
 )
 
 func withLocal(cb func(storage.FS)) {

@@ -7,8 +7,8 @@ import (
 
 	"github.com/stretchr/testify/assert"
 
-	"github.com/Shopify/go-storage"
-	"github.com/Shopify/go-storage/internal/testutils"
+	"github.com/Coronon/go-storage"
+	"github.com/Coronon/go-storage/internal/testutils"
 )
 
 func withCache(options *storage.CacheOptions, cb func(fs storage.FS, src storage.FS, cache storage.FS)) {

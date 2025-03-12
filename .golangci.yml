@@ -2,7 +2,7 @@ linters-settings:
   goimports:
     # put imports beginning with prefix after 3rd-party packages;
     # it's a comma-separated list of prefixes
-    local-prefixes: github.com/Shopify/go-storage
+    local-prefixes: github.com/Coronon/go-storage
 
   gocritic:
     # Which checks should be enabled; can't be combined with 'disabled-checks';
@@ -30,23 +30,23 @@ linters:
     - asciicheck
     - bodyclose
     - contextcheck
+    - copyloopvar
     - errcheck
     - errname
     - errorlint
     - exhaustive
-    - exportloopref
     - forbidigo
     - goconst
     - gocritic
     - gofmt
     - gofumpt
     - goimports
-    - gomnd
     - goprintffuncname
     - gosec
     - gosimple
     - govet
     - ineffassign
+    - mnd
     - nilerr
     - nlreturn
     - noctx
@@ -56,11 +56,11 @@ linters:
     - sqlclosecheck
     - staticcheck
     - stylecheck
-    - tenv
     - thelper
     - tparallel
     - typecheck
     - unconvert
     - unused
+    - usetesting
     - wastedassign
     - whitespace
