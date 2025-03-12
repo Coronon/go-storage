@@ -12,7 +12,7 @@ import (
 
 func OpenExists(t *testing.T, fs storage.FS, path string, content string) {
 	t.Helper()
-	ctx := context.Background()
+	ctx := t.Background()
 
 	f, err := fs.Open(ctx, path, nil)
 	assert.NoError(t, err)
@@ -36,7 +36,7 @@ func OpenExists(t *testing.T, fs storage.FS, path string, content string) {
 
 func OpenNotExists(t *testing.T, fs storage.FS, path string) {
 	t.Helper()
-	ctx := context.Background()
+	ctx := t.Background()
 
 	_, err := fs.Open(ctx, path, nil)
 	assert.Errorf(t, err, "storage %s: path does not exist", path)
@@ -47,7 +47,7 @@ func OpenNotExists(t *testing.T, fs storage.FS, path string) {
 
 func Create(t *testing.T, fs storage.FS, path string, content string) {
 	t.Helper()
-	ctx := context.Background()
+	ctx := t.Background()
 
 	wc, err := fs.Create(ctx, path, nil)
 	assert.NoError(t, err)
@@ -63,7 +63,7 @@ func Create(t *testing.T, fs storage.FS, path string, content string) {
 
 func Delete(t *testing.T, fs storage.FS, path string) {
 	t.Helper()
-	ctx := context.Background()
+	ctx := t.Background()
 
 	Create(t, fs, path, "foo")
 
@@ -75,7 +75,7 @@ func Delete(t *testing.T, fs storage.FS, path string) {
 
 func RemoveAll(tb testing.TB, fs storage.FS) {
 	tb.Helper()
-	ctx := context.Background()
+	ctx := tb.Background()
 
 	err := fs.Walk(ctx, "", func(path string) error {
 		return fs.Delete(ctx, path)

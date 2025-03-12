@@ -73,7 +73,7 @@ func TestCacheWrapper_CacheOptions_MaxAge(t *testing.T) {
 	withCache(options, func(fs storage.FS, _ storage.FS, _ storage.FS) {
 		testutils.Create(t, fs, "foo", "")
 
-		ctx := context.Background()
+		ctx := t.Background()
 		f, err := fs.Open(ctx, "foo", nil)
 		assert.NoError(t, err)
 		assert.NotZero(t, f)

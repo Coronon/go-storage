@@ -11,7 +11,7 @@ import (
 
 func TestList(t *testing.T) {
 	withTestTree(t, func(dir string) {
-		ctx := context.Background()
+		ctx := t.Background()
 		fs := NewLocalFS(dir)
 
 		list, err := List(ctx, fs, "")
@@ -47,7 +47,7 @@ func TestWalkN(t *testing.T) {
 			close(done)
 		}()
 
-		ctx := context.Background()
+		ctx := t.Background()
 		fs := NewLocalFS(dir)
 		// 5 workers for 2 items
 		err := WalkN(ctx, fs, "", 5, func(path string) error {
@@ -67,7 +67,7 @@ func TestWalkN(t *testing.T) {
 func withTestTree(t *testing.T, cb func(dir string)) {
 	t.Helper()
 
-	dir, err := os.MkdirTemp("", "go-storage-walk-test")
+	dir, err := t.MkdirTemp("", "go-storage-walk-test")
 	assert.NoError(t, err)
 	defer os.RemoveAll(dir)
 

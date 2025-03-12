@@ -20,7 +20,7 @@ import (
 )
 
 func BenchmarkCloudStorageFS(b *testing.B) {
-	ctx := context.Background()
+	ctx := b.Background()
 
 	withCloudStorageFS(b, func(fs storage.FS) {
 		b.Run("create", func(b *testing.B) {
@@ -79,7 +79,7 @@ func Test_cloudStorageFS_URL(t *testing.T) {
 		contents := "test"
 		testutils.Create(t, fs, path, contents)
 
-		url, err := fs.URL(context.Background(), path, nil)
+		url, err := fs.URL(t.Background(), path, nil)
 		require.NoError(t, err)
 		require.NotEmpty(t, url)
 
@@ -121,7 +121,7 @@ func Test_cloudStorageFS_Delete(t *testing.T) {
 }
 
 func Test_cloudStorageFS_Content_Encoding(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Background()
 
 	withCloudStorageFS(t, func(fs storage.FS) {
 		path := "foo"

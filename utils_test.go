@@ -11,7 +11,7 @@ import (
 )
 
 func TestExists(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Background()
 
 	withMem(func(fs storage.FS) {
 		assert.False(t, storage.Exists(ctx, fs, "foo"))
@@ -21,7 +21,7 @@ func TestExists(t *testing.T) {
 }
 
 func TestRead(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Background()
 	withMem(func(fs storage.FS) {
 		testutils.Create(t, fs, "foo", "bar")
 
@@ -32,7 +32,7 @@ func TestRead(t *testing.T) {
 }
 
 func TestWrite(t *testing.T) {
-	ctx := context.Background()
+	ctx := t.Background()
 	withMem(func(fs storage.FS) {
 		assert.NoError(t, storage.Write(ctx, fs, "foo", []byte("bar"), nil))
 		testutils.OpenExists(t, fs, "foo", "bar")
